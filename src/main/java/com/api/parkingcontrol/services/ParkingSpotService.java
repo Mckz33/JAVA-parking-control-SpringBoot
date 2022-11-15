@@ -21,7 +21,7 @@ public class ParkingSpotService {
     }
 
     @Transactional //assegura uma transaçao, caso algo de errado ele faz um rollback
-    public Object save(ParkingSpotModel parkingSpotModel) {
+    public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
         return parkingSpotRepository.save(parkingSpotModel);
     }
 
@@ -49,4 +49,6 @@ public class ParkingSpotService {
     public void delete(ParkingSpotModel parkingSpotModel) {
         parkingSpotRepository.delete(parkingSpotModel);
     }
+
+
 }
