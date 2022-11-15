@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600) //permite que o controller seja acessado de qualquer fonte
 @RequestMapping("/parking-spot") //@RequestMapping - define URL a nivel de classe
 public class ParkingSpotController {
 
+    // POST
     final ParkingSpotService parkingSpotService;
 
     public ParkingSpotController(ParkingSpotService parkingSpotService) {
@@ -47,4 +49,13 @@ public class ParkingSpotController {
         parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));// seta a data de registro captada no momento do cadastro
         return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.save(parkingSpotModel)); // retorna a resposta
     }
+
+    // GET
+
+    @GetMapping
+    public ResponseEntity<List<ParkingSpotModel>> getAllParkingSpots(){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll());
+    }
+
+
 }

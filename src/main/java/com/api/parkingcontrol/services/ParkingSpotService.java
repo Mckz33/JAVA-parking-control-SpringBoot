@@ -5,6 +5,10 @@ import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service //@Service é um bin do spring na camada de service
 public class ParkingSpotService {
 
@@ -32,4 +36,10 @@ public class ParkingSpotService {
     public boolean existsByApartmentAndBlock(String apartment, String block) {
         return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
+
+    public List<ParkingSpotModel> findAll() {
+        return parkingSpotRepository.findAll();
+    }
+
+
 }
