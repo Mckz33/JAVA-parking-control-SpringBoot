@@ -1,0 +1,18 @@
+insert into usuario values ('45fd60af-6967-4dff-b932-bdf4a1d8ea42', '$2a$10$A/yLdFJ8IH7SBOR92LeLVObt65XVUX3xtyENrwnZE7VSBoZv3S47q', 'mario');
+insert into usuario values ('c4a34a00-2446-44b1-b6a0-cf8576871fc1', '$2a$10$A/yLdFJ8IH7SBOR92LeLVObt65XVUX3xtyENrwnZE7VSBoZv3S47q', 'mckz');
+
+insert into role values(gen_random_uuid(), 'ROLE_ADMIN');
+insert into role values(gen_random_uuid(), 'ROLE_USER');
+
+select * from role;
+select * from usuario;
+select * from users_roles;
+
+delete from usuario;
+
+insert into users_roles values ('c4a34a00-2446-44b1-b6a0-cf8576871fc1', 'eff762ca-62fb-4fd3-9dc5-e2ab595ca017');
+insert into users_roles values ('45fd60af-6967-4dff-b932-bdf4a1d8ea42', '1c9e00f3-297c-433d-acb7-f3e1dec7328c');
+
+select u.user_id, role_id, username from users_roles ur
+    inner join usuario u
+        on ur.user_id = u.user_id;

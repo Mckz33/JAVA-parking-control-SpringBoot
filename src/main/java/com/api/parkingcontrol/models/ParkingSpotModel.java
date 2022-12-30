@@ -1,10 +1,7 @@
 package com.api.parkingcontrol.models;
 
-import jakarta.annotation.Nullable;
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 

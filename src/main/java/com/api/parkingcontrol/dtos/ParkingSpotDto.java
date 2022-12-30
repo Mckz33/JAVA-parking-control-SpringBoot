@@ -1,7 +1,7 @@
 package com.api.parkingcontrol.dtos;
 
-import jakarta.validation.constraints.*;
-import org.hibernate.validator.constraints.br.CPF;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class ParkingSpotDto {
 

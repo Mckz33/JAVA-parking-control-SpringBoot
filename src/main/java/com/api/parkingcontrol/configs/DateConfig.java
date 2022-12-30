@@ -1,4 +1,4 @@
-package com.api.parkingcontrol.Configs;
+package com.api.parkingcontrol.configs;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -16,7 +16,7 @@ public class DateConfig {
 
     @Bean
     @Primary
-    public ObjectMapper objectMapper(){
+    public ObjectMapper objectMapper() {
         JavaTimeModule module = new JavaTimeModule();
         module.addSerializer(LOCAL_DATETIME_SERIALIZER);
         return new ObjectMapper().registerModule(module);
